@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField1" max="32767" attributes="0"/>
+                  <Component id="textFieldDisplay" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -72,7 +72,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnDot" min="-2" pref="81" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnCalc" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="btnResult" min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -86,7 +86,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="85" max="-2" attributes="0"/>
+              <Component id="textFieldDisplay" min="-2" pref="85" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnC" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
@@ -120,7 +120,7 @@
                   <Component id="btnSignUnsign" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="btnZero" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="btnDot" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="btnCalc" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnResult" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -128,13 +128,16 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="textFieldDisplay">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldDisplayActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnC">
       <Properties>
@@ -144,6 +147,9 @@
         <Property name="text" type="java.lang.String" value="C"/>
         <Property name="toolTipText" type="java.lang.String" value="All Clear"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBr">
       <Properties>
@@ -153,6 +159,9 @@
         <Property name="text" type="java.lang.String" value="()"/>
         <Property name="toolTipText" type="java.lang.String" value="Bracks"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBrActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMod">
       <Properties>
@@ -162,6 +171,9 @@
         <Property name="text" type="java.lang.String" value="%"/>
         <Property name="toolTipText" type="java.lang.String" value="Modulas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDiv">
       <Properties>
@@ -171,6 +183,9 @@
         <Property name="text" type="java.lang.String" value="/"/>
         <Property name="toolTipText" type="java.lang.String" value="Division"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDivActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMul">
       <Properties>
@@ -180,6 +195,9 @@
         <Property name="text" type="java.lang.String" value="*"/>
         <Property name="toolTipText" type="java.lang.String" value="Multiplication"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMulActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnNine">
       <Properties>
@@ -189,6 +207,9 @@
         <Property name="text" type="java.lang.String" value="9"/>
         <Property name="toolTipText" type="java.lang.String" value="Nine"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNineActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEight">
       <Properties>
@@ -198,6 +219,9 @@
         <Property name="text" type="java.lang.String" value="8"/>
         <Property name="toolTipText" type="java.lang.String" value="Eight"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEightActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSeven">
       <Properties>
@@ -207,6 +231,9 @@
         <Property name="text" type="java.lang.String" value="7"/>
         <Property name="toolTipText" type="java.lang.String" value="Seven"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSevenActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFour">
       <Properties>
@@ -216,6 +243,9 @@
         <Property name="text" type="java.lang.String" value="4"/>
         <Property name="toolTipText" type="java.lang.String" value="Four"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFourActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFive">
       <Properties>
@@ -225,6 +255,9 @@
         <Property name="text" type="java.lang.String" value="5"/>
         <Property name="toolTipText" type="java.lang.String" value="Five"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFiveActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSix">
       <Properties>
@@ -234,6 +267,9 @@
         <Property name="text" type="java.lang.String" value="6"/>
         <Property name="toolTipText" type="java.lang.String" value="Six"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSixActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMin">
       <Properties>
@@ -243,6 +279,9 @@
         <Property name="text" type="java.lang.String" value="-"/>
         <Property name="toolTipText" type="java.lang.String" value="Minus"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnThree">
       <Properties>
@@ -252,6 +291,9 @@
         <Property name="text" type="java.lang.String" value="3"/>
         <Property name="toolTipText" type="java.lang.String" value="Three"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThreeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnOne">
       <Properties>
@@ -261,6 +303,9 @@
         <Property name="text" type="java.lang.String" value="1"/>
         <Property name="toolTipText" type="java.lang.String" value="One"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOneActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
@@ -270,6 +315,9 @@
         <Property name="text" type="java.lang.String" value="+"/>
         <Property name="toolTipText" type="java.lang.String" value="Plus"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTwo">
       <Properties>
@@ -279,6 +327,9 @@
         <Property name="text" type="java.lang.String" value="2"/>
         <Property name="toolTipText" type="java.lang.String" value="Two"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTwoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDot">
       <Properties>
@@ -288,6 +339,9 @@
         <Property name="text" type="java.lang.String" value="."/>
         <Property name="toolTipText" type="java.lang.String" value="Dot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnZero">
       <Properties>
@@ -297,6 +351,9 @@
         <Property name="text" type="java.lang.String" value="0"/>
         <Property name="toolTipText" type="java.lang.String" value="Zero"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnZeroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSignUnsign">
       <Properties>
@@ -306,8 +363,11 @@
         <Property name="text" type="java.lang.String" value="+/-"/>
         <Property name="toolTipText" type="java.lang.String" value="Sign/Unsign"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignUnsignActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCalc">
+    <Component class="javax.swing.JButton" name="btnResult">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -315,6 +375,9 @@
         <Property name="text" type="java.lang.String" value="="/>
         <Property name="toolTipText" type="java.lang.String" value="Calculation"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

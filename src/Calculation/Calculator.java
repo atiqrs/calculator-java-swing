@@ -10,7 +10,10 @@ package Calculation;
  * @author Atiqur
  */
 public class Calculator extends javax.swing.JFrame {
-
+    private double firstNumber;
+    private double secondNumber;
+    private double result;
+    String operation; 
     
     public Calculator() {
         initComponents();
@@ -25,7 +28,7 @@ public class Calculator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        textFieldDisplay = new javax.swing.JTextField();
         btnC = new javax.swing.JButton();
         btnBr = new javax.swing.JButton();
         btnMod = new javax.swing.JButton();
@@ -45,92 +48,197 @@ public class Calculator extends javax.swing.JFrame {
         btnDot = new javax.swing.JButton();
         btnZero = new javax.swing.JButton();
         btnSignUnsign = new javax.swing.JButton();
-        btnCalc = new javax.swing.JButton();
+        btnResult = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textFieldDisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        textFieldDisplay.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textFieldDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldDisplayActionPerformed(evt);
+            }
+        });
 
         btnC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnC.setText("C");
         btnC.setToolTipText("All Clear");
+        btnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCActionPerformed(evt);
+            }
+        });
 
         btnBr.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBr.setText("()");
         btnBr.setToolTipText("Bracks");
+        btnBr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrActionPerformed(evt);
+            }
+        });
 
         btnMod.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnMod.setText("%");
         btnMod.setToolTipText("Modulas");
+        btnMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModActionPerformed(evt);
+            }
+        });
 
         btnDiv.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnDiv.setText("/");
         btnDiv.setToolTipText("Division");
+        btnDiv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivActionPerformed(evt);
+            }
+        });
 
         btnMul.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnMul.setText("*");
         btnMul.setToolTipText("Multiplication");
+        btnMul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMulActionPerformed(evt);
+            }
+        });
 
         btnNine.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnNine.setText("9");
         btnNine.setToolTipText("Nine");
+        btnNine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNineActionPerformed(evt);
+            }
+        });
 
         btnEight.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnEight.setText("8");
         btnEight.setToolTipText("Eight");
+        btnEight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEightActionPerformed(evt);
+            }
+        });
 
         btnSeven.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSeven.setText("7");
         btnSeven.setToolTipText("Seven");
+        btnSeven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSevenActionPerformed(evt);
+            }
+        });
 
         btnFour.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnFour.setText("4");
         btnFour.setToolTipText("Four");
+        btnFour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFourActionPerformed(evt);
+            }
+        });
 
         btnFive.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnFive.setText("5");
         btnFive.setToolTipText("Five");
+        btnFive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiveActionPerformed(evt);
+            }
+        });
 
         btnSix.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSix.setText("6");
         btnSix.setToolTipText("Six");
+        btnSix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSixActionPerformed(evt);
+            }
+        });
 
         btnMin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnMin.setText("-");
         btnMin.setToolTipText("Minus");
+        btnMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinActionPerformed(evt);
+            }
+        });
 
         btnThree.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnThree.setText("3");
         btnThree.setToolTipText("Three");
+        btnThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThreeActionPerformed(evt);
+            }
+        });
 
         btnOne.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnOne.setText("1");
         btnOne.setToolTipText("One");
+        btnOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOneActionPerformed(evt);
+            }
+        });
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAdd.setText("+");
         btnAdd.setToolTipText("Plus");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnTwo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnTwo.setText("2");
         btnTwo.setToolTipText("Two");
+        btnTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTwoActionPerformed(evt);
+            }
+        });
 
         btnDot.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnDot.setText(".");
         btnDot.setToolTipText("Dot");
+        btnDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDotActionPerformed(evt);
+            }
+        });
 
         btnZero.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnZero.setText("0");
         btnZero.setToolTipText("Zero");
+        btnZero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZeroActionPerformed(evt);
+            }
+        });
 
         btnSignUnsign.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSignUnsign.setText("+/-");
         btnSignUnsign.setToolTipText("Sign/Unsign");
+        btnSignUnsign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUnsignActionPerformed(evt);
+            }
+        });
 
-        btnCalc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnCalc.setText("=");
-        btnCalc.setToolTipText("Calculation");
+        btnResult.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnResult.setText("=");
+        btnResult.setToolTipText("Calculation");
+        btnResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +247,7 @@ public class Calculator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(textFieldDisplay)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -181,7 +289,7 @@ public class Calculator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnDot, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnResult, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -189,7 +297,7 @@ public class Calculator extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,12 +327,96 @@ public class Calculator extends javax.swing.JFrame {
                     .addComponent(btnSignUnsign, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnZero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDot, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
+        
+    }//GEN-LAST:event_btnCActionPerformed
+
+    private void textFieldDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldDisplayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldDisplayActionPerformed
+
+    private void btnOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOneActionPerformed
+
+    private void btnBrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBrActionPerformed
+
+    private void btnZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnZeroActionPerformed
+
+    private void btnSignUnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUnsignActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSignUnsignActionPerformed
+
+    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDotActionPerformed
+
+    private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResultActionPerformed
+
+    private void btnTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTwoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTwoActionPerformed
+
+    private void btnThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThreeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThreeActionPerformed
+
+    private void btnFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFourActionPerformed
+
+    private void btnFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFiveActionPerformed
+
+    private void btnSixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSixActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSixActionPerformed
+
+    private void btnSevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSevenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSevenActionPerformed
+
+    private void btnEightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEightActionPerformed
+
+    private void btnNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNineActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinActionPerformed
+
+    private void btnMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMulActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMulActionPerformed
+
+    private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDivActionPerformed
+
+    private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,7 +457,6 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBr;
     private javax.swing.JButton btnC;
-    private javax.swing.JButton btnCalc;
     private javax.swing.JButton btnDiv;
     private javax.swing.JButton btnDot;
     private javax.swing.JButton btnEight;
@@ -276,12 +467,13 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton btnMul;
     private javax.swing.JButton btnNine;
     private javax.swing.JButton btnOne;
+    private javax.swing.JButton btnResult;
     private javax.swing.JButton btnSeven;
     private javax.swing.JButton btnSignUnsign;
     private javax.swing.JButton btnSix;
     private javax.swing.JButton btnThree;
     private javax.swing.JButton btnTwo;
     private javax.swing.JButton btnZero;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField textFieldDisplay;
     // End of variables declaration//GEN-END:variables
 }
