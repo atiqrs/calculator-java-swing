@@ -14,6 +14,7 @@ public class Calculator extends javax.swing.JFrame {
     private double secondNumber;
     private double result;
     String operation; 
+    String answare;
     
     public Calculator() {
         initComponents();
@@ -30,7 +31,7 @@ public class Calculator extends javax.swing.JFrame {
 
         textFieldDisplay = new javax.swing.JTextField();
         btnC = new javax.swing.JButton();
-        btnBr = new javax.swing.JButton();
+        btnCe = new javax.swing.JButton();
         btnMod = new javax.swing.JButton();
         btnDiv = new javax.swing.JButton();
         btnMul = new javax.swing.JButton();
@@ -69,12 +70,12 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
-        btnBr.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnBr.setText("()");
-        btnBr.setToolTipText("Bracks");
-        btnBr.addActionListener(new java.awt.event.ActionListener() {
+        btnCe.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCe.setText("CE");
+        btnCe.setToolTipText("Current Clear");
+        btnCe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBrActionPerformed(evt);
+                btnCeActionPerformed(evt);
             }
         });
 
@@ -253,7 +254,7 @@ public class Calculator extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnC, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBr, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCe, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnMod, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -301,7 +302,7 @@ public class Calculator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCe, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMod, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -335,7 +336,12 @@ public class Calculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
-        
+        textFieldDisplay.setText("");
+        firstNumber = 0;
+        secondNumber = 0;
+        result = 0;
+        operation = ""; 
+        answare = "";
     }//GEN-LAST:event_btnCActionPerformed
 
     private void textFieldDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldDisplayActionPerformed
@@ -343,79 +349,130 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldDisplayActionPerformed
 
     private void btnOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOneActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnOne.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnOneActionPerformed
 
-    private void btnBrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBrActionPerformed
+    private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
+        textFieldDisplay.setText("");
+    }//GEN-LAST:event_btnCeActionPerformed
 
     private void btnZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZeroActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnZero.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnZeroActionPerformed
 
     private void btnSignUnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUnsignActionPerformed
-        // TODO add your handling code here:
+        Double value = Double.parseDouble(String.valueOf(textFieldDisplay.getText()));
+        value = value*(-1);
+        textFieldDisplay.setText(String.valueOf(value));
     }//GEN-LAST:event_btnSignUnsignActionPerformed
 
     private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnDot.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnDotActionPerformed
 
     private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultActionPerformed
-        // TODO add your handling code here:
+        secondNumber = Double.parseDouble(textFieldDisplay.getText());
+
+        switch(operation) {
+            case "+" :
+                result = firstNumber + secondNumber;
+                answare = String.format("%.0f", result);
+                textFieldDisplay.setText(answare);
+                break;
+            case "-" :
+                result = firstNumber - secondNumber;
+                answare = String.format("%.0f", result);
+                textFieldDisplay.setText(answare);
+                break;
+            case "*" :
+                result = firstNumber * secondNumber;
+                answare = String.format("%.0f", result);
+                textFieldDisplay.setText(answare);
+                break;
+            case "/" :
+                result = firstNumber / secondNumber;
+                answare = String.format("%.0f", result);
+                textFieldDisplay.setText(answare);
+                break;
+            case "%" :
+                result = firstNumber % secondNumber;
+                answare = String.format("%.0f", result);
+                textFieldDisplay.setText(answare);
+                break; 
+        }
     }//GEN-LAST:event_btnResultActionPerformed
 
     private void btnTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTwoActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnTwo.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnTwoActionPerformed
 
     private void btnThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThreeActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnThree.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnThreeActionPerformed
 
     private void btnFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFourActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnFour.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnFourActionPerformed
 
     private void btnFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiveActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnFive.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnFiveActionPerformed
 
     private void btnSixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSixActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnSix.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnSixActionPerformed
 
     private void btnSevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSevenActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnSeven.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnSevenActionPerformed
 
     private void btnEightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEightActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnEight.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnEightActionPerformed
 
     private void btnNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNineActionPerformed
-        // TODO add your handling code here:
+        String value = textFieldDisplay.getText() + btnNine.getText();
+        textFieldDisplay.setText(value);
     }//GEN-LAST:event_btnNineActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        firstNumber = Double.parseDouble(textFieldDisplay.getText());
+        textFieldDisplay.setText("");
+        operation = "+";
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
-        // TODO add your handling code here:
+        firstNumber = Double.parseDouble(textFieldDisplay.getText());
+        textFieldDisplay.setText("");
+        operation = "-";
     }//GEN-LAST:event_btnMinActionPerformed
 
     private void btnMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMulActionPerformed
-        // TODO add your handling code here:
+        firstNumber = Double.parseDouble(textFieldDisplay.getText());
+        textFieldDisplay.setText("");
+        operation = "*";
     }//GEN-LAST:event_btnMulActionPerformed
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
-        // TODO add your handling code here:
+        firstNumber = Double.parseDouble(textFieldDisplay.getText());
+        textFieldDisplay.setText("");
+        operation = "/";
     }//GEN-LAST:event_btnDivActionPerformed
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
-        // TODO add your handling code here:
+        firstNumber = Double.parseDouble(textFieldDisplay.getText());
+        textFieldDisplay.setText("");
+        operation = "%";
     }//GEN-LAST:event_btnModActionPerformed
 
     /**
@@ -455,8 +512,8 @@ public class Calculator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBr;
     private javax.swing.JButton btnC;
+    private javax.swing.JButton btnCe;
     private javax.swing.JButton btnDiv;
     private javax.swing.JButton btnDot;
     private javax.swing.JButton btnEight;
